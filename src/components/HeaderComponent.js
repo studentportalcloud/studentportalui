@@ -1,5 +1,7 @@
 import React from "react";
 import { PageHeader } from 'antd';
+import 'antd/dist/antd.css';
+import "./headerStyles.css";
 
 class HeaderComponent extends React.Component {
     render() {
