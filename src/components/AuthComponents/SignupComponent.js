@@ -17,51 +17,51 @@ const tailLayout = {
     }
 };
 let treeData = [
-    {
-      title: 'Elementary',
-      value: '0-0',
-      selectable:false,
-      children: [
-        {
-          title: 'Class - I',
-          value: '0-0-1',
-        },
-        {
-          title: 'Class - IX',
-          value: '0-0-2',
-        },
-      ],
-    },
-    {
-      title: 'Bachelors',
-      value: '0-1',
-      selectable:false,
-      children: [
-            {
-                title: "Engineering",
-                value: '0-0-0-1',
-                selectable:false,
-                children: [
-                  {
-                      title: "Computer",
-                      value: "0-0-0-0-1",
-                      selectable:false,
-                      children: [
-                          {
-                              title: "Year - I",
-                              value: "0-0-0-0-0-0-1",
-                              treeNodeLabelProp: ".../Engineering/Computer/Year -I"
-                          },
-                          {
-                            title: "Year - II",
-                            value: "0-0-0-0-0-0-2"
-                        }
-                      ]
-                  }
-              ]
-          }
-      ]
-    },
+    // {
+    //   title: 'Elementary',
+    //   value: '0-0',
+    //   selectable:false,
+    //   children: [
+    //     {
+    //       title: 'Class - I',
+    //       value: '0-0-1',
+    //     },
+    //     {
+    //       title: 'Class - IX',
+    //       value: '0-0-2',
+    //     },
+    //   ],
+    // },
+    // {
+    //   title: 'Bachelors',
+    //   value: '0-1',
+    //   selectable:false,
+    //   children: [
+    //         {
+    //             title: "Engineering",
+    //             value: '0-0-0-1',
+    //             selectable:false,
+    //             children: [
+    //               {
+    //                   title: "Computer",
+    //                   value: "0-0-0-0-1",
+    //                   selectable:false,
+    //                   children: [
+    //                       {
+    //                           title: "Year - I",
+    //                           value: "0-0-0-0-0-0-1",
+    //                           treeNodeLabelProp: ".../Engineering/Computer/Year -I"
+    //                       },
+    //                       {
+    //                         title: "Year - II",
+    //                         value: "0-0-0-0-0-0-2"
+    //                     }
+    //                   ]
+    //               }
+    //           ]
+    //       }
+    //   ]
+    // },
   ];
 
 const onFinishFailed = () => {};
