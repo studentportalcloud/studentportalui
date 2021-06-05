@@ -17,18 +17,9 @@ const tailLayout = {
     }
 };
 
-class LoginComponent extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    onFinish(values) {
-        console.log('Success:', values);
-    }
-
-    onFinishFailed(errorInfo) {
-        console.log('Failed:', errorInfo);
-    }
-    render() {
+const onFinishFailed = () => {};
+const onFinish = () => {};
+function LoginComponent() {
         return (
         <div>
             <Card title="Existing Users (Login)" className="form-layout">
@@ -38,8 +29,8 @@ class LoginComponent extends React.Component {
                 initialValues={{
                 remember: true,
                 }}
-                onFinish={this.onFinish}
-                onFinishFailed={this.onFinishFailed}
+                onFinish={onFinish}
+                onFinishFailed={onFinishFailed}
             >
                 <Form.Item
                 label="Email"
@@ -80,7 +71,6 @@ class LoginComponent extends React.Component {
         </Card>
           </div>
         )
-    }
 }
 
 export default LoginComponent;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, Input, Button, Checkbox, Card, DatePicker, TreeSelect } from 'antd';
 
 
@@ -16,67 +16,61 @@ const tailLayout = {
       span: 16,
     }
 };
-
-class SignupComponent extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            value: undefined
-        };
-        this.treeData = [
+let treeData = [
+    {
+      title: 'Elementary',
+      value: '0-0',
+      selectable:false,
+      children: [
+        {
+          title: 'Class - I',
+          value: '0-0-1',
+        },
+        {
+          title: 'Class - IX',
+          value: '0-0-2',
+        },
+      ],
+    },
+    {
+      title: 'Bachelors',
+      value: '0-1',
+      selectable:false,
+      children: [
             {
-              title: 'Elementary',
-              value: '0-0',
-              selectable:false,
-              children: [
-                {
-                  title: 'Class - I',
-                  value: '0-0-1',
-                },
-                {
-                  title: 'Class - IX',
-                  value: '0-0-2',
-                },
-              ],
-            },
-            {
-              title: 'Bachelors',
-              value: '0-1',
-              selectable:false,
-              children: [
-                    {
-                        title: "Engineering",
-                        value: '0-0-0-1',
-                        selectable:false,
-                        children: [
+                title: "Engineering",
+                value: '0-0-0-1',
+                selectable:false,
+                children: [
+                  {
+                      title: "Computer",
+                      value: "0-0-0-0-1",
+                      selectable:false,
+                      children: [
                           {
-                              title: "Computer",
-                              value: "0-0-0-0-1",
-                              selectable:false,
-                              children: [
-                                  {
-                                      title: "Year - I",
-                                      value: "0-0-0-0-0-0-1",
-                                      treeNodeLabelProp: ".../Engineering/Computer/Year -I"
-                                  },
-                                  {
-                                    title: "Year - II",
-                                    value: "0-0-0-0-0-0-2"
-                                }
-                              ]
-                          }
+                              title: "Year - I",
+                              value: "0-0-0-0-0-0-1",
+                              treeNodeLabelProp: ".../Engineering/Computer/Year -I"
+                          },
+                          {
+                            title: "Year - II",
+                            value: "0-0-0-0-0-0-2"
+                        }
                       ]
                   }
               ]
-            },
-          ];
-    }
+          }
+      ]
+    },
+  ];
 
-    onChange = value => {
-        console.log(value);
-        this.setState({ value });
+const onFinishFailed = () => {};
+const onFinish = () => {};
+function SignupComponent() {
+    const [value, setValue] = useState();
+    let onChange = value => {
+        setValue(value);
       };
-    render() {
         return (
             <div>
                 <Card title="New Users (Create Account)" className="form-layout">
@@ -86,8 +80,8 @@ class SignupComponent extends React.Component {
                         initialValues={{
                         remember: true,
                         }}
-                        onFinish={this.onFinish}
-                        onFinishFailed={this.onFinishFailed}
+                        onFinish={onFinish}
+                        onFinishFailed={onFinishFailed}
                     >
 
                         <Form.Item
@@ -166,14 +160,14 @@ class SignupComponent extends React.Component {
                         >
                         <TreeSelect
                         style={{ width: '100%' }}
-                        value={this.state.value}
+                        value={value}
                         dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
-                        treeData={this.treeData}
+                        treeData={treeData}
                         labelInValue={false}
                         treeNodeLabelProp="treeNodeLabelProp"
                         placeholder="Please select"
                         // treeDefaultExpandAll
-                        onChange={this.onChange}
+                        onChange={onChange}
                     />
                         </Form.Item>
                         <Form.Item {...tailLayout}>
@@ -185,7 +179,6 @@ class SignupComponent extends React.Component {
                 </Card>
             </div>
         )
-    }
 
 }
 
